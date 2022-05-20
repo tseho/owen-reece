@@ -1,0 +1,40 @@
+#!/bin/bash
+
+create() {
+  read -p "App name: " APP_NAME
+
+  echo "------"
+  printf "Clone \e[1mnodejs\e[0m template into $(pwd)/${APP_NAME} \e[92m\xE2\x9C\x94\e[0m\n"
+  echo "------"
+  echo "Installing dependencies with npm..."
+
+  count=0
+  while [ $count -lt 25 ]; do
+    sleep 0.2
+    count=$(($count + 1))
+    printf  "▓"
+  done
+
+  printf " \e[92m\xE2\x9C\x94\e[0m\n"
+  echo "------"
+  echo -e "\e[92mApp is successfully configured.\e[0m"
+  echo "------"
+  echo "You can work with it by starting a local development server."
+  echo "Run the following commands:"
+  echo -e "\e[34m\$\e[0m cd ./$APP_NAME"
+  echo -e "\e[34m\$\e[0m akeneo app serve"
+}
+
+serve() {
+  echo ""
+}
+
+if [ $2 = "create" ]
+then
+  create
+fi
+
+if [ $2 = "serve" ]
+then
+  serve
+fi
